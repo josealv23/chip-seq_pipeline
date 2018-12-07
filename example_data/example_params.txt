@@ -1,8 +1,8 @@
-working_directory: /home/bag1/temp
+working_directory: /home/<user>/temp
 main_folder: prr5_samples
-genome_folder: /home/bag1/prr5_samples/genome/chromosome1.fa
-annotation_folder: /home/bag1/prr5_samples/annotation/chromosome1.gtf
-installation_folder: /home/bag1/opt/chipseq_pipeline
-chip_location: /home/bag1/prr5_samples/samples/chip/chip_prr5_chr1.fastq
-input_location: /home/bag1/prr5_samples/samples/input/input_prr5_chr1.fastq
-results_folder: /home/bag1/temp/prr5_samples/results
+genome_folder: /home/<user>/prr5_samples/genome/chromosome1.fa
+annotation_folder: /home/<user>/prr5_samples/annotation/chromosome1.gtf
+installation_folder: /home/<user>/chipseq_pipeline
+chip_location: /home/<user>/prr5_samples/samples/chip/chip_prr5_chr1.fastq
+input_location: /home/<user>/prr5_samples/samples/input/input_prr5_chr1.fastq
+results_folder: /home/<user>/temp/prr5_samples/results
