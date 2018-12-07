@@ -26,8 +26,6 @@ CHIPLOC=$(grep chip_location: $PARAMS | awk '{print $2}')
 echo $CHIPLOC
 INPUTLOC=$(grep input_location: $PARAMS | awk '{print $2}')
 echo $INPUTLOC
-RES=$(grep results_folder: $PARAMS | awk '{ print $2 }')
-echo $RES
 
 
 #############################
