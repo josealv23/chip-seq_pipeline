@@ -37,11 +37,6 @@ We recommend using BASH to run this pipeline.
 
 `bash <chipseq_pipeline> <params.txt>`
 
-We also recommend copying the folder "Scripts" containing Java.jar into the installation folder. This is mandatory unless you modify the routing in the respective scripts. If you haven't modified it, performing the copy as follows will work perfectly
-
-`cp <file location> <installation folder>`
-
-
 The following is a list of files provided with your ChIP-Seq analysis using this pipeline - once you used the raw unprocessed gzipped FASTQ files:
 
 - Mapped SAM files
