@@ -8,7 +8,7 @@ This pipeline takes as entry a genome, two samples - chip (study group) and inpu
 ## **Installation and dependencies**
 
 1. Clone or download the repository. To download specific parts, you can get into your console and download using `wget <link url>`
-2. If the file is a file.zip, use `unzip <file.zip>`
+2. For the file.zip files, use `unzip <file.zip>`
 3. For a proper usage of this pipeline, you will need to install some dependencies (see section below).
 4. Once you've installed all the dependencies below, you can jump to the example section if you want to perform an example with the data set providen.
 
