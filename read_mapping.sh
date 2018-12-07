@@ -41,5 +41,5 @@ SAMPLES_DONE=$(wc -l ../../log/blackboard | awk '{ print $1 }' )
 
 if [ $SAMPLES_DONE -eq 2 ]
 then
-qsub -N peak_calling -o peak_calling ${INS}/peak_calling.sh ${MAIN_FOLDER}/results ${MAIN_FOLDER}/annotation/annotation.gtf $WD $MAIN_FOLDER $INS
+qsub -N peak_calling -o peak_calling ${INS}/peak_calling.sh ${MAIN_FOLDER}/annotation/annotation.gtf $MAIN_FOLDER $INS
 fi
