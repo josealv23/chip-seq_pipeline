@@ -7,11 +7,9 @@
 ### Parameters and input ###
 ############################
 
-RES=$1
-ANNO=$2
-WD=$3
-MAIN_FOLDER=$4
-INS=$5
+ANNO=$1
+MAIN_FOLDER=$2
+INS=$3
 
 
 ####################
