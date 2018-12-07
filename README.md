@@ -23,7 +23,13 @@ For the properly usage of this pipeline, you will need to install some dependenc
 
 - [R and Rscript](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html) - R is an open source free software environment for statistical computing and graphics. Rscript is the R package that is offered for scripting front-end for R, to be used in #! scripts and other scripting applications.
 
-- [SGE](http://genomics.princeton.edu/support/grids/sge.shtml) - SGE, Sun Grid Engine, is an open source distributed computing management system. It is through SGE commands that jobs are submitted, monitored, deleted, and otherwise managed. In order for SGE to work properly, the SGE_ROOT environment variable must be set appropriately for the cluster you are using. 
+- [SGE](http://genomics.princeton.edu/support/grids/sge.shtml) - SGE, Sun Grid Engine, is an open source distributed computing management system. It is through SGE commands that jobs are submitted, monitored, deleted, and otherwise managed. In order for SGE to work properly, the SGE_ROOT environment variable must be set appropriately for the cluster you are using.
+
+#### Additional preanalysis
+
+Additionally, we recommend you to ensure your samples have enough quality before submitting a job with this pipeline. This step is not mandatory, but we highly encourage you to run an analysis of your samples using software like FastQC:
+
+- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - FastQC gives general quality metrics about your reads. It provides information about the quality score distribution across your reads, the per base sequence content (%T/A/G/C). You get information about adapter contamination and other overrepresented sequences.
 
 ## **Usage**
 
@@ -36,20 +42,9 @@ We also recommend copying the folder "Scripts" containing Java.jar into the inst
 `cp <file location> <installation folder>`
 
 
+The following is a list of files provided with your ChIP-Seq analysis using this pipeline - once you used the raw unprocessed gzipped FASTQ files:
 
-The following is a list of files provided with your ChIP-Seq analysis:
-
-- Raw unprocessed gzipped FASTQ files
-
-- FASTQC report with basic sequencing quality statistics
-
-- Mapped BAM files (sorted -> low-qual filtered -> duplicates removed)
-
-- Wiggle and BigWig tracks
-
-- ChIP-Seq quality measures (phantompeakqualtools)
-
-- HOMER generated analysis output files
+- Mapped SAM files
 
 - MACS2 generated analysis output files
 
@@ -72,8 +67,19 @@ input_location: <location of the fastq file - input sample (control sample)>
 
 ## **Example**
 
-Download the params.txt into your installation folder, and prr5_samples in /home/user.
+We have provided an example data set with this pipeline. The example tools can be found in the example_data folder. In there, there's:
 
-Then, run `bash chipseq_pipeline params.txt`
+- A formatted file params.txt named example_params.txt
+- A subfolder named prr5_samples, containing:
+  - Annotation genome, zipped in the annotation folder. The file format is .gtf
+  - Genome, zipped in the genome folder. The file format is .fa
+  - Samples folder, containing chip and input samples, zipped in their respective folders. Those file format is .fq
+  
+At this point, there are 2 options:
 
-A folder called temp will be created. Your results will be located into temp/prr5_samples/results.
+- Personalize the example_params.txt so that it fits your needs.
+- Extract all the files in the following route: `/home/<user>/chipseq_pipeline/`. Move the example_params.txt document from the example_data folder to the route mentioned before. Move the prr5_samples folder to `/home/<user>/` so that you can access `/home/<user>/prr5_samples`. Once you've done this, open example_params.txt with a text editor and replace the tag <user> with your username. Finally, go to the route where the scripts area and run:
+
+`bash chipseq_pipeline example_params.txt`
+
+A folder called temp will be created. Your results will be located into /home/<user>/temp/prr5_samples/results.
