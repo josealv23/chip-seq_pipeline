@@ -1,0 +1,64 @@
+#! /bin/bash
+
+echo "11000010 10100001 01001000 01101111 01101100 01100001 00100000 01000110 01110010 01100001 01101110 00100001"
+
+#############################
+### Parameters and inputs ###
+#############################
+
+# Input parameters
+
+PARAMS=$1
+
+# Parameter reading
+
+WD=$(grep working_directory: $PARAMS | awk '{ print $2}')
+echo $WD
+MAIN_FOLDER=$(grep main_folder: $PARAMS | awk '{print $2}')
+echo $MAIN_FOLDER
+GEN=$(grep genome_folder: $PARAMS | awk '{print $2}')
+echo $GEN
+ANNO=$(grep annotation_folder: $PARAMS | awk '{print $2}')
+echo $ANNO
+INS=$(grep installation_folder: $PARAMS | awk '{print $2}')
+echo $INS
+CHIPLOC=$(grep chip_location: $PARAMS | awk '{print $2}')
+echo $CHIPLOC
+INPUTLOC=$(grep input_location: $PARAMS | awk '{print $2}')
+echo $INPUTLOC
+RES=$(grep results_folder: $PARAMS | awk '{ print $2 }')
+echo $RES
+
+
+#############################
+### Workspace preparation ###
+#############################
+
+cd $WD
+
+# Create main folder
+
+mkdir $MAIN_FOLDER
+cd $MAIN_FOLDER
+
+# Create subfolders
+
+mkdir genome annotation results samples log
+
+# Create chip and input
+
+cd samples
+mkdir chip input
+cd ../genome
+cp $GEN genome.fa
+bowtie-build genome.fa index
+cd ../annotation
+cp $ANNO annotation.gtf
+
+
+###############################
+### Run read mapping script ###
+###############################
+
+qsub -N chip -o chip $INS/read_mapping.sh $WD/$MAIN_FOLDER/samples/chip $CHIPLOC chip $WD/$MAIN_FOLDER $WD $INS
+qsub -N input -o input $INS/read_mapping.sh $WD/$MAIN_FOLDER/samples/input $INPUTLOC input $WD/$MAIN_FOLDER $WD $INS

@@ -1,0 +1,7 @@
+working_directory: <location where the main folder is going to be created> 
+main_folder:  <main folder name>
+genome_folder: <location of the fasta file containing the genome>
+annotation_folder: <location of the '.gtf' file containing the genome annotation>
+installation_folder: <location of the chipseq pipeline main script and the rest of scripts>
+chip_location: <location of the fastq file - chip sample (study sample)>
+input_location: <location of the fastq file - input sample (control sample)>
