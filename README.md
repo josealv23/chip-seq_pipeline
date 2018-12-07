@@ -7,11 +7,10 @@ This pipeline takes as entry a genome, two samples - chip (study group) and inpu
 
 ## **Installation and dependencies**
 
-1. Copy URL link for every file in the chipseq_pipeline repository.
-2. Get into your console and download each one by using `wget <link url>`
-3. If the file is a file.zip, use `unzip <file.zip>`
-
-For the properly usage of this pipeline, you will need to install some dependencies (see section below).
+1. Clone or download the repository. To download specific parts, you can get into your console and download using `wget <link url>`
+2. If the file is a file.zip, use `unzip <file.zip>`
+3. For a proper usage of this pipeline, you will need to install some dependencies (see section below).
+4. Once you've installed all the dependencies below, you can jump to the example section if you want to perform an example with the data set providen.
 
 ### **You will need to install:**
 
@@ -40,9 +39,7 @@ We recommend using BASH to run this pipeline.
 The following is a list of files provided with your ChIP-Seq analysis using this pipeline - once you used the raw unprocessed gzipped FASTQ files:
 
 - Mapped SAM files
-
 - MACS2 generated analysis output files
-
 - Peak annotations
 
 
