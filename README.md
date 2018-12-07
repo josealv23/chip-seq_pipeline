@@ -74,4 +74,4 @@ At this point, there are 2 options:
 
 `bash chipseq_pipeline example_params.txt`
 
-A folder called temp will be created. Your results will be located into /home/<user>/temp/prr5_samples/results.
+A folder called temp will be used (`/home/<user>/temp`), so **ensure you have previously created that folder**. Your results will be located into /home/<user>/temp/prr5_samples/results.
